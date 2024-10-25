@@ -176,54 +176,54 @@ We evaluated on 4 products, each product undergoes modelling and experimentation
 <p align="center">Fig 6. Trend Categories and News Categories discrepancy</p> 
 
 <p align="center">
-  <img src="./images/7. Hot index per Category.png"/>
+  <img src="./images/7. Hot index per Category.PNG"/>
 </p> 
 <p align="center">Fig 7. Hot index per Category</p> 
 
 <p align="center">
-  <img src="./images/8. Discrepancies between GMI and News Sentiment.png"/>
+  <img src="./images/8. Discrepancies between GMI and News Sentiment.PNG"/>
 </p> 
 <p align="center">Fig 8. Discrepancies between GMI and News Sentiment</p> 
 
 <p align="center">
-  <img src="./images/9. Regional sales and GMI Relevancy.png"/>
+  <img src="./images/9. Regional sales and GMI Relevancy.PNG"/>
 </p> 
 <p align="center">Fig 9. Regional sales and GMI Relevancy</p> 
 
 <p align="center">
-  <img src="./images/10. Regional sales and GMI Sentiment.png"/>
+  <img src="./images/10. Regional sales and GMI Sentiment.PNG"/>
 </p> 
 <p align="center">Fig 10. Regional sales and GMI Sentiment</p> 
 
 <p align="center">
-  <img src="./images/11. Regional Sales and Impact Factor.png"/>
+  <img src="./images/11. Regional Sales and Impact Factor.PNG"/>
 </p> 
 <p align="center">Fig 11. Regional Sales and Impact Factor</p> 
 
 <p align="center">
-  <img src="./images/12. Regional Sales and CHIR and CHIC.png"/>
+  <img src="./images/12. Regional Sales and CHIR and CHIC.PNG"/>
 </p> 
 <p align="center">Fig 12. Regional Sales and CHIR and CHIC</p> 
 
 ## Results
 
 <p align="center">
-  <img src="./images/13. Product-A Forecasting Result.png"/>
+  <img src="./images/13. Product-A Forecasting Result.PNG"/>
 </p> 
 <p align="center">Fig 13. Product-A Forecasting Result</p> 
 
 <p align="center">
-  <img src="./images/14. Product-B Forecasting Result.png"/>
+  <img src="./images/14. Product-B Forecasting Result.PNG"/>
 </p> 
 <p align="center">Fig 14. Product-B Forecasting Result</p> 
 
 <p align="center">
-  <img src="./images/15. Product-C Forecasting Result.png"/>
+  <img src="./images/15. Product-C Forecasting Result.PNG"/>
 </p> 
 <p align="center">Fig 15. Product-C Forecasting Result</p> 
 
 <p align="center">
-  <img src="./images/16. Product-D Forecasting Result.png"/>
+  <img src="./images/16. Product-D Forecasting Result.PNG"/>
 </p> 
 <p align="center">Fig 16. Product-D Forecasting Result</p> 
 
