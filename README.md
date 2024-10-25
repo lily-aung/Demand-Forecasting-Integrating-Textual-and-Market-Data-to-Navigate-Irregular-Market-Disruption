@@ -21,6 +21,7 @@ Integrating high-frequency indicators that provide real-time data and nuanced an
 
 The proposed methodology in this paper leverages trends and news from these platforms, extracts textual insights, and informs our strategy thus enabling quicker and more informed forecasting decisions
 
+
 ## Methodology
 
 
@@ -47,105 +48,103 @@ Together, this framework provides a robust methodology for assessing market irre
 </p> 
 <p align="center">Fig 2. Details of Methodology</p> 
 
-- High-Frequency Textual Event Disruption Analyzer (HFT-EDA)
-Leverages social media data to blend trends and news, providing immediate insights. This component derives crucial metrics such as hot-index, uniqueness, and duration to deepen the understanding of sentiments and trends
+  #### High-Frequency Textual Event Disruption Analyzer (HFT-EDA)
 
-    ```
-    Lead Generation : Collect data from Trends and News
+  Leverages social media data to blend trends and news, providing immediate insights. This component derives crucial metrics such as hot-index, uniqueness, and duration to deepen the understanding of sentiments and trends
+  
+  a. Lead Generation : Collect data from Trends and News
+  
+  - Trends: Emerging events identified through user searches and social media activity
+  - News: Detailed information and analysis that provides context and depth to the trends
+  
+  Collection method 
+      - Online API
+      - Crawler
+      - Service from third-party data provider etc
+  
+  
+  Examples of collected Trends and News data:
+  <p align="center">
+      <img src="./images/explanatory_images/LeadGeneration.png"/>
+  </p> 
+  <p align="center">Fig 2.1 LeadGeneration</p> 
 
-    - Trends: Emerging events identified through user searches and social media activity
-    - News: Detailed information and analysis that provides context and depth to the trends
+  b. Lead Capture: Filter and refine news and trends data to ensure only relevant business information is retained by using a two-step filtering approach: Topic categorization (classification) and relevancy scoring process
 
-    Collection method 
-        - Online API
-        - Crawler
-        - Service from third-party data provider etc
-    ```
+  Topic categorization
+      Model: “Randeng-T5-784M-MultiTask-Chinese” LLM model
+      Usage: Classify news into different categories, retain categories of interest
+      Categories of interest: 
+      Set 1: Realty, Finance, Stocks
+      Set 2: Pandemic, Sport, Natural-disaster (Concentrated on active sales areas in China)
 
-    Examples of collected Trends and News data:
-    <p align="center">
-        <img src="./images/explanatory_images/LeadGeneration.png"/>
-    </p> 
-    <p align="center">Fig 2.1 LeadGeneration</p> 
+  Relevancy scoring
+      Reference data: Internally developed Global Market Insights (GMI) dataset (Curated by Sales Managers across divisions (Automotive, Industrial, ICT, Realty, etc.))
+      Usage: Compare the semantic similarities between news trends and GMI content to measure relevance, helping assess their potential impact on product sales
 
-
-
-    ```
-    Lead Capture: Filter and refine news and trends data to ensure only relevant business information is retained by using a two-step filtering approach: Topic categorization (classification) and relevancy scoring process
-
-    Topic categorization
-        Model: “Randeng-T5-784M-MultiTask-Chinese” LLM model
-        Usage: Classify news into different categories, retain categories of interest
-        Categories of interest: 
-        Set 1: Realty, Finance, Stocks
-        Set 2: Pandemic, Sport, Natural-disaster (Concentrated on active sales areas in China)
-
-    Relevancy scoring
-        Reference data: Internally developed Global Market Insights (GMI) dataset (Curated by Sales Managers across divisions (Automotive, Industrial, ICT, Realty, etc.))
-        Usage: Compare the semantic similarities between news trends and GMI content to measure relevance, helping assess their potential impact on product sales
-    ```
-    Examples of GMI Dataset Sample:
-    <p align="center">
-        <img src="./images/explanatory_images/LeadGeneration.png"/>
-    </p> 
-    <p align="center">Fig 2.2 GMI Samples Data</p> 
-
-    ```
-    Lead Attributes : Extract text-based indexes (to gain a deeper contextual understanding of the emerging trends and news)
-    ```
-    Examples of LeadAttributes:
-    <p align="center">
-        <img src="./images/explanatory_images/LeadAttributes.png"/>
-    </p> 
-    <p align="center">Fig 2.3 LeadAttributes</p> 
-
-    ```
-    Lead Impact: Calculate an “Impact Factor” as an aggregated score for selected trend attributes, representing insights derived from textual data
-
-    Weighted sum scheme across attributes such as hot-index, uniqueness of the news, trend duration, news duration, GMI relevance score, news sentiment, and GMI sentiment. This score helps indicate stable and turbulent periods (derived from lead attributes)
+  Examples of GMI Dataset Sample:
+  <p align="center">
+      <img src="./images/explanatory_images/LeadGeneration.png"/>
+  </p> 
+  <p align="center">Fig 2.2 GMI Samples Data</p> 
 
 
-    ```
-    
+  c. Lead Attributes : Extract text-based indexes (to gain a deeper contextual understanding of the emerging trends and news)
+  
+  Examples of LeadAttributes:
+  <p align="center">
+      <img src="./images/explanatory_images/LeadAttributes.png"/>
+  </p> 
+  <p align="center">Fig 2.3 LeadAttributes</p> 
 
-- Market Health Analyzer (MHA)
+    -----
+  d. Lead Impact: Calculate an “Impact Factor” as an aggregated score for selected trend attributes, representing insights derived from textual data
+
+  Weighted sum scheme across attributes such as hot-index, uniqueness of the news, trend duration, news duration, GMI relevance score, news sentiment, and GMI sentiment. This score helps indicate stable and turbulent periods (derived from lead attributes)
+
+
+-----
+
+#### Market Health Analyzer (MHA)
+
 Employs a comprehensive array of indicators, including hard, soft, and high-frequency indicators, to assess broader market dynamics
 
-    - Hard Indicators: Based on measurable data from government or reputable institutions (e.g., GDP, industrial production, housing data, inflation, interest rates). While they provide a stable economic context, they are often lagging due to infrequent updates
+  - Hard Indicators: Based on measurable data from government or reputable institutions (e.g., GDP, industrial production, housing data, inflation, interest rates). While they provide a stable economic context, they are often lagging due to infrequent updates
+  
+  - Soft Indicators: Derived from surveys and perceptions, these are typically available faster than hard indicators. Examples include the Purchasing Managers' Index, Consumer Price Index, in China. They offer early signals of economic changes, helping stakeholders gauge sentiment and expectations that influence decisions
+  
+  - High-Frequency Indicators: Provide near real-time data, allowing businesses to anticipate demand shifts during unexpected events and adjust strategies quickly. This includes stock market, transportation, and freight data
 
-    - Soft Indicators: Derived from surveys and perceptions, these are typically available faster than hard indicators. Examples include the Purchasing Managers' Index, Consumer Price Index, in China. They offer early signals of economic changes, helping stakeholders gauge sentiment and expectations that influence decisions
+  Our main focus is to choose relevant high-frequency indicators available from the stock market
+  Country-specific Exchange-Traded Funds (ETF) baseline:
 
-    - High-Frequency Indicators: Provide near real-time data, allowing businesses to anticipate demand shifts during unexpected events and adjust strategies quickly. This includes stock market, transportation, and freight data
+  <p align="center">
+      <img src="./images/explanatory_images/Country-Specific ETF.png"/>
+  </p> 
+  <p align="center">Fig 2.4 Country-Specific ETF</p> 
 
-    Our main focus is to choose relevant high-frequency indicators available from the stock market
-    Country-specific Exchange-Traded Funds (ETF) baseline:
+  Sector-specific ETF (to gain deeper insights into the performance of the Chinese market and its underlying sectors):
 
-    <p align="center">
-        <img src="./images/explanatory_images/Country-Specific ETF.png"/>
-    </p> 
-    <p align="center">Fig 2.4 Country-Specific ETF</p> 
+  <p align="center">
+      <img src="./images/explanatory_images/Sector-Specific ETF.png"/>
+  </p> 
+  <p align="center">Fig 2.5 Sector-Specific ETF</p> 
 
-    Sector-specific ETF (to gain deeper insights into the performance of the Chinese market and its underlying sectors):
+### 3. Integration of HFT-EDA and MHA Attributes
 
-    <p align="center">
-        <img src="./images/explanatory_images/Sector-Specific ETF.png"/>
-    </p> 
-    <p align="center">Fig 2.5 Sector-Specific ETF</p> 
+  <p align="center">
+  <img src="./images/3. Integration of HFT-EDA and MHA Attributes.png"/>
+  </p> 
+  <p align="center">Fig 3. Integration of HFT-EDA and MHA Attributes</p> 
+  
+  Attribution preprocessing:
+  Lead attributes:
+  Nominal variables: Perform one-hot encoding for nominal variables and aggregate them by summing their values during aggregation
+  
+  Interval variables: Calculate the mean score
+  
+  MHA’s attributes: Numerical variables: Calculate the median value
 
-    ### 3. Integration of HFT-EDA and MHA Attributes
-
-    <p align="center">
-    <img src="./images/3. Integration of HFT-EDA and MHA Attributes.png"/>
-    </p> 
-    <p align="center">Fig 3. Integration of HFT-EDA and MHA Attributes</p> 
-
-    Attribution preprocessing:
-    Lead attributes:
-    Nominal variables: Perform one-hot encoding for nominal variables and aggregate them by summing their values during aggregation
-
-    Interval variables: Calculate the mean score
-
-    MHA’s attributes: Numerical variables: Calculate the median value
 
 ### 4. Demand Forecasting Pipeline
 
