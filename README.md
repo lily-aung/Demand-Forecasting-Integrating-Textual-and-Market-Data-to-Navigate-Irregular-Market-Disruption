@@ -97,7 +97,6 @@ Together, this framework provides a robust methodology for assessing market irre
   </p> 
   <p align="center">Fig 2.3 LeadAttributes</p> 
 
-    -----
   d. Lead Impact: Calculate an “Impact Factor” as an aggregated score for selected trend attributes, representing insights derived from textual data
 
   Weighted sum scheme across attributes such as hot-index, uniqueness of the news, trend duration, news duration, GMI relevance score, news sentiment, and GMI sentiment. This score helps indicate stable and turbulent periods (derived from lead attributes)
