@@ -246,7 +246,10 @@ Future work
     The Irregular Market Disruption (IRX) index performed better during market turbulence but matched the baseline during recovery phases. Incorporating the Lead Impact Factor could help optimize performance by activating or deactivating IRX components based on market conditions
 
 
-This paper is being presented at ADMIT 2024 with a focus on the Chinese market. It will be included in the Conference Proceedings, published by ACM, with the full paper scheduled for release soon.
+## Conference Paper
+
+This paper has been published in the ADMIT 2024 Conference Proceedings with a focus on the Chinese market. It is available through ACM.
+[check here for more details](https://doi.org/10.1145/3701100.3701158)
 
 ## Contact
 
